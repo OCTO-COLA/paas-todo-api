@@ -3,8 +3,9 @@ const express = require("express")
 const app = express()
 app.use(express.json())
 
+const env = process.env
 app.get("/", function (req, res) {
-  res.send(`<u>Hello World!</u>`)
+  res.send(`Environment is ${env.NOM_ENV}`)
 })
 
 const port = process.env.PORT
