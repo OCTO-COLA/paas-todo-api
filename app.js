@@ -4,7 +4,7 @@ const app = express()
 app.use(express.json())
 
 app.get("/", function (req, res) {
-  res.send(`<ul>Hello World!</ul>`)
+  res.send(`<u>Hello World!</u>`)
 })
 
 const port = process.env.PORT
