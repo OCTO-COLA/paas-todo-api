@@ -7,6 +7,7 @@ app.use(express.json())
 const sequelize = new Sequelize(process.env.DATABASE_URL)
 
 const Queue = require("bull")
+const { renderingTodos } = require("./renders/render");
 const REDIS_URL = process.env.REDIS_URL
 
 // Création d'une file de JOBs (stockée sur Redis) gérée par Bull
@@ -47,6 +48,17 @@ app.post("/todos", async function (req, res) {
     return
   }
   res.send("Ok")
+})
+
+//Web interfaced get
+app.get("/web/todos", async function (req, res) {
+  let todos = []
+  try {
+    todos = (await sequelize.query("SELECT * FROM todos"))[0]
+  } catch (error) {
+    console.error(error)
+  }
+  res.send(`${await renderingTodos(todos)}`)
 })
 
 const port = process.env.PORT

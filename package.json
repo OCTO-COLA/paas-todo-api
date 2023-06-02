@@ -8,7 +8,9 @@
     "start:watch": "nodemon app.js",
     "start:worker-watch": "nodemon worker.js",
     "migrate": "sequelize db:migrate",
-    "migrate:undo": "sequelize db:migrate:undo"
+    "migrate:undo": "sequelize db:migrate:undo",
+    "clean-todos": "node one-off/clean-todos",
+    "clean-late-todos": "node one-off/clean-late-todos"
   },
   "author": "OCTO",
   "license": "ISC",
