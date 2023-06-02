@@ -4,7 +4,9 @@
   "main": "app.js",
   "scripts": {
     "start": "node app.js",
+    "start:worker": "node worker.js",
     "start:watch": "nodemon app.js",
+    "start:worker-watch": "nodemon worker.js",
     "migrate": "sequelize db:migrate",
     "migrate:undo": "sequelize db:migrate:undo"
   },
